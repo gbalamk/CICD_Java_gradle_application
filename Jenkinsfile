@@ -49,7 +49,7 @@ pipeline{
                             sh '''
                             helmversion=$(helm show chart app | grep version | cut -d : -f 2 | tr -d ' ')
                             tar -czvf myapp-${helmversion}.tgz myapp/
-                            curl -u admin:$docker_pass http://34.125.215.36/:8081/repository/helm-hosted-bala/ --upload-file myapp-${helmversion}.tgz -v
+                            curl -u admin:$docker_pass http://34.125.215.36:8081/repository/helm-hosted-bala/ --upload-file myapp-${helmversion}.tgz -v
                             '''
                         }
                     }    
