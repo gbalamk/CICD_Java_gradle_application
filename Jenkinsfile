@@ -73,6 +73,7 @@ pipeline{
                     kubeconfig(credentialsId: 'kubeconfig', serverUrl: '') {
                         dir ("kubernetes/"){  
                             sh 'helm list'
+                            sh 'docker login -u admin -p admin 34.125.215.36:8083'
                             sh 'helm upgrade --install --set image.repository="34.125.215.36:8083/springapp" --set image.tag="${VERSION}" myjavaapp myapp/ ' 
                         }
                     }
